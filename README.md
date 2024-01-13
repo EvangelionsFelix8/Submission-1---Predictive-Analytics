@@ -2,8 +2,6 @@
 
 ## Domain Proyek
 
-Topik yang diambil mengenai prediksi harga rumah. Terdapat beberapa spesifikasi-spesifikasi yang menentukan harga rumah seperti pada dataset kaggle https://www.kaggle.com/datasets/iamsouravbanerjee/house-rent-prediction-dataset terdapat kolom Rent yang akan menjadi target prediksi, serta beberapa spesifikasi yang ada pada setiap rumah tersebut.
-
 Harga setiap rumah tentu akan bergantung kepada spesifikasi rumah tersebut, hal-hal yang mempengaruhi adalah lokasi, luas rumah, jumlah ruangan yang ada, seperti kamar tidur, kamar mandi, dan kamar yang lainnya, furnitur-furnitur yang ada, dan masih banyak lainnya. terdapat juga faktor eksternal yang mungkin mempengaruhi harga rumah, seperti sedikitnya jumlah hunian pada daerah tersebut, lingkungan tempat rumah tersebut, serta tren pasar properti.
 
 ## Business Understanding
@@ -14,7 +12,6 @@ Menjelaskan pernyataan masalah latar belakang:
 
 - Algoritma apa yang dapat memprediksi masalah housing rent secara optimal?
 - Berapa harga sewa/rent apabila dihadapkan dengan karakteristik tertentu?
-- Tantangan ketidakpastian terhadap suatu harga rumah
 - Masalah kerugian bisa datang dari penjual atau pembeli jika, harga prediksi rumah yang tidak akurat.
 
 ### Goals
@@ -22,6 +19,7 @@ Menjelaskan pernyataan masalah latar belakang:
 Menjelaskan tujuan dari pernyataan masalah:
 
 - Mengetahui fitur apa saja yang memberikan dampak besar terhadap harga rumah
+- Melakukan analisis terhadap data dan Exploratory Data Analysis
 - Membuat model Machine Learning yang mampu untuk memprediksi harga sewa/rent dengan tingkat akurasi yang cukup tinggi
 
 ## Data Understanding
@@ -93,7 +91,7 @@ Dalam tahap ini pengembang menggunakan 3 Metode Preparation:
 
 2. Train Test Split
 
-- pada bagian ini pengembang membagi dataset menjadi dua, yaitu train data dan test data, dengan masing-masing perbandingan 90% train data dan 10% test data.
+- Pada bagian ini pengembang membagi dataset menjadi dua, yaitu train data dan test data, dengan masing-masing perbandingan 90% train data dan 10% test data. jadi data latih yang akan digunakan untuk melatih model sebesar 90% data pada dataset, sedangkan 10% data dari dataset akan digunakan untuk data uji model yang telah dilatih.
 - Hal tersebut dilakukan agar train data dapat digunakan untuk melatih model yang dibuat, sedangkan test data digunakan untuk hasil evaluasi dari model yang telah di training.
 - Apabila tidak melakukan Train Test Split yang terjadi adalah tidak tahu apakah model tersebut akan bekerja dengna maksimal atau tidak, karena tidak memiliki data yang digunakan untuk mengetest model yang telah dibuat.
 
@@ -142,12 +140,11 @@ Algoritma dalam pengembangan ini menggunakan 3 model algoritma, yaitu K-Nearest 
     random_state = seed untuk mengatur keacakan
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/5c876d64-6db7-4be9-9130-2ea4185f921e)
 
-
 ## Evaluation
 
 Metrik evaluasi yang digunakan dalam proyek ini adalah Mean Squared Error (MSE). MSE menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. Berikut ini adalah persamaan dari MSE
 
-![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/e341063d-f07e-4903-aa56-8fb2722b6f1a)
+$$ MSE = {{1 \over N} \sum_{i=1}^n (Y_i - Ŷ_i)} $$
 
 keterangan:
 - N = jumlah dataset
@@ -170,7 +167,11 @@ Melakukan test Score terhadap model yang telah dibuat.
 
 - memiliki akurasi sebesar 58%
 
-  ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/b1001034-7511-47c9-b786-8b7ae60da916)
+| Model         | Accuracy |
+|---------------|----------|
+| KNN           | 0.6196   |
+| Random Forest | 0.7907   |
+| Boosting      | 0.5837   |
 
 
 Dari ketiga Algortima yang digunakan dapat dilihat bahwa Algortima Random Forest memiliki akurasi tertinggi. oleh karena itu Algortima inilah yang dapat dijadikan sebagai model utama untuk memprediksi.
