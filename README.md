@@ -50,7 +50,10 @@ Dalam hal ini terlihat bahwa fitur Posted On dan Point of Contact memiliki penga
 Dari mengeksplore data yang telah ada pada bagian Categorical Features dapat disimpulkan bahwa:
 
 - Feature Area Type memiliki permasalahan yang disebut imbalanced data, artinya terdapat kategori yang memiliki perbedaan yang signifikan.
-  ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/a4469bc9-de52-48c6-9b13-8f4ae1f0d14d)
+  
+  ![Image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/a4469bc9-de52-48c6-9b13-8f4ae1f0d14d)
+  
+  *Visualisasi Fitur "Area Type"*
 
 - Floor dan Area Locality memiliki banyak sekali kategori-kategori yang ada, oleh karena itu untuk menghindari dimensi data yang terlalu banyak/tinggi, maka fitur-fitur tersebut akan di drop/dihilangkan.
   
@@ -59,8 +62,12 @@ Pada Numerical Features pada gambar histogram dapat disimpulkan bahwa:
 - BHK (Kamar tidur, Ruangan, dan dapur) terbanyak adalah sebanyak 2 BHK, diikuti dengan 1 BHK, kemudian 3 BHK.
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/4e833511-cec9-4ea9-88f7-613f1e4f7988)
 
+  *Visualisasi Fitur "BHK"*
+
 - Size atau luas rumah yang paling banyak di sewakan/dijual adalah rumah yang memiliki luas kurang dari 1800
 ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/0bea2bb9-72c4-4082-bcc9-2634a6ab1037)
+
+ *Visualisasi Fitur "Size"*
 
 
 ## Multivariate Analysis
@@ -70,14 +77,22 @@ Dari mengeksplore data dengan menggunakan catplot pada bagian Categorical Featur
 - fitur 'Area Type' memiliki selisih yang besar, sehingga fitur ini bisa dianggap fitur yang memiliki pengaruh terhadap hasil Rent
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/62647717-6967-4019-93dc-b3398b0757ed)
 
+   *Visualisasi Fitur "Area Type"*
+
 - fitur 'City' memiliki selisih yang yang kurang lebih sama, kecuali mumbai, oleh karena itu, fitur 'City' juga memiliki pengaruh terhadap Target, apabila rumah tersebut berada di kota mumbai tentu akan lebih mahal.
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/7c85e3f5-a918-44f0-9596-63259a16c4e1)
+
+  *Visualisasi Fitur "City"*
 
 - Fitur 'Furnishing Status' memiliki pengaruh yang cukup besar terhadap prediksi harga sewa.
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/f2610aae-ba4a-4dcf-a113-c018b376a195)
 
+  *Visualisasi Fitur "Furnishing Status"*
+
 - Fitur 'Tenant Preferred' memiliki pengaruh yang cukup besar terhadap harga sewa. Rumah yang ditujukan untuk bachelor/Family cenderung lebih murah jika dibandingkan dengan Family.
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/b490c6f2-58f5-4c5d-8f63-fb0231d88a5c)
+
+  *Visualisasi Fitur "Tenant Preferred"*
 
 ## Data Preparation
 
@@ -115,6 +130,8 @@ Algoritma dalam pengembangan ini menggunakan 3 model algoritma, yaitu K-Nearest 
     n_neighbours = jumlah tetangga terdekat
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/8aa6a8c2-08b2-47bc-ac4d-7474da808198)
 
+  *Visualisasi Fitur "Parameter pada Model KNN"*
+
 
 2. Random Forest
 
@@ -129,6 +146,8 @@ Algoritma dalam pengembangan ini menggunakan 3 model algoritma, yaitu K-Nearest 
     n_jobs = jumlah pekerjaan paralel yang harus dilakukan, jika -1, maka akan menggunakan semua core CPU
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/b2132115-2ad3-4a88-90e2-84257af8653c)
 
+  *Visualisasi Fitur "Parameter pada Model Random Forest"*
+
 3. Boosting Algorithm
 
 - Boosting algorithm yang digunakan akana AdaBoost. algortima ini bertujuan untuk meningkatkan performa atau akurasi.
@@ -139,6 +158,8 @@ Algoritma dalam pengembangan ini menggunakan 3 model algoritma, yaitu K-Nearest 
     learning_rate = mengatur kontribusi model yang lemah
     random_state = seed untuk mengatur keacakan
   ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/5c876d64-6db7-4be9-9130-2ea4185f921e)
+
+  *Visualisasi Fitur "Parameter pada Model Boosting Algorithm"*
 
 ## Evaluation
 
