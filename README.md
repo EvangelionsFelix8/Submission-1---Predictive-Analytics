@@ -33,8 +33,11 @@ Variabel-variabel pada Anime Recommendations Database adalah sebagai berikut:
 - name : merupakan variabel nama atau judul dari anime tersebut
 - genre : merupakan variabel list genre dari anime yang dipisahkan dengan tanda koma
 - type : merupakan variabel tipe anime (Movie, TV, OVA)
-  tipe anime apabila movie, seperti film kebanyakan, hanya memiliki durasi kurang lebih 2 jam
+
+  tipe movie, seperti film kebanyakan, hanya memiliki durasi kurang lebih 2 jam
+
   tipe TV, film yang memiliki beberapa episode dalam televisi tayangan animenya
+
   tipe OVA, adalah serangkaian anime yang dipublikasikan langsung ke dalam format video tanpa siaran di televisi ataupun bioskop
 - episodes : merupakan variabel berapa banyak episode anime (1 jika itu movie)
 - rating : merupakan variabel rata-rata rating anime, dalam bentuk skala angka 1-10
