@@ -66,7 +66,7 @@ fungsi anime_recommendation bertujuan untuk menampilkan judul-judul anime yang m
 - similarity_data : Tingkat kesamaan judul anime dalam bentuk dataframe
 - items : parameter ini terdapat 2 kolom anime_name dan genre
 - k : banyaknya jumlah rekomnedasi anime yang diinginkan
-- 
+
 ## Hasil dari pemodelan
 Model yang telah dilatih telah selesai dibuat, untuk menampilkan hasil rekomendasinya diinputkan data sebagai berikut:
 
@@ -92,3 +92,6 @@ Setelah melakukan uji rekomendasi maka didapatkan 10 movie anime teratas dari ha
 ## Evaluation
 Model yang digunakan atau teknik yang digunakan dalam proyek terakhir ini adalah Content-Based Filtering, metrik yang umum dan mudah yang digunakan adalah 'Precision at K'. Metrik ini mengukur seberapa akurat sistem dalam merekomendasikan item yang revelan dengan item yang direkomendasikan
 
+$$ Precision \\ at \\ K = {{Jumlah \\ item \\ relevan \\ di \\ antara \\ K \\ item \\ pertama \over K}} $$
+
+Berdasarkan rumus tersebut dapat dihitung bahwa, dari 10 anime yang direkomendasikan terdapat 9 anime yang memiliki genre yang sama dengan anime yang pengguna lihat. Maka, nilai Precision at K dari sistem rekomendasi ini adalah 9/10, yang berarti tingkat akurasi dari model adalah 90%.
