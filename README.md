@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Topik yang diambil mengenai sistem rekomendasi untuk merekomendasikan anime-anime yang sesuai dengan animenya (Content based Filltering). Sistem rekomendasi digunakan untuk dapat meningkatkan penjualan perusahaan, dikarenakan pengguna akan membeli atau akan melihat juga anime yang memiliki kesamaan seperti anime yang pengguna sukai. Hal tersebut dapat saja terjadi karena mungkin karena ketidaktahuan pengguna mengenai kabar terbaru dari anime yang pengguna sukai, dan perusahaan bisa merekomendasikan anime tersebut dan hal ini akan meningkatkan statistik penjualan perusahaan, menambah keuntungan perusahaan.
+Topik yang diambil mengenai sistem rekomendasi untuk merekomendasikan anime-anime yang sesuai dengan animenya (Content based Filltering). Sistem rekomendasi digunakan untuk dapat meningkatkan penjualan perusahaan, dikarenakan pengguna akan membeli atau akan melihat juga anime yang memiliki kesamaan seperti anime yang pengguna sukai. Perusahaan bisa merekomendasikan anime tersebut dan hal ini akan meningkatkan statistik penjualan perusahaan, menambah keuntungan perusahaan.
 
 Tujuan dibuatnya sistem rekomendasi ini adalah agar pengguna dapat diberikan rekomendasi yang sesuai dengan apa yang menjadi kebutuhan pengguna danatau yang pengguna sukai.
 
@@ -95,8 +95,8 @@ fungsi anime_recommendation bertujuan untuk menampilkan judul-judul anime yang m
 
 4. Content-Based Filtering
 - Algoritma ini dapat memberikan rekomendasi terhadap pengguna berdasarkan genre yang disukai pengguna. Cara kerja dari algortima ini adalah sistem akan merekomendasikan konten-konten yang sama dari suatu item, kemudian dari kesamaan tersebut, maka sistem akan membuat tingkat kesamaan antara item 1 dengan item yang lainnya.
-- Model ini akan menyeleksi genre-genre yang pengguna lihat serta akan merekomendasikan film/anime lainnya yang memiliki genre yang sama.
-- 
+- Model ini akan menyeleksi genre-genre yang pengguna lihat serta akan merekomendasikan film/anime lainnya yang memiliki genre yang hampir sama.
+- Pertimbangan dalam menggunakan Content-Based Filtering, karena dataset tersebut memiliki kolom genre yang banyak pada datasetnya, list of genre. jadi anime yang direkomendasikan pun akan bisa memiliki genre yang hampir sama.
 
 ## Hasil dari pemodelan
 Model yang telah dilatih telah selesai dibuat, untuk menampilkan hasil rekomendasinya diinputkan data sebagai berikut:
