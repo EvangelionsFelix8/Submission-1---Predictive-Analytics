@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-Topik yang diambil mengenai sistem rekomendasi untuk merekomendasikan anime-anime yang sesuai dengan animenya (Content based Filltering). Sistem rekomendasi digunakan untuk dapat meningkatkan lalu lintas film perusahaan, dikarenakan pengguna akan membeli atau akan melihat juga anime yang memiliki kesamaan seperti anime yang pengguna sukai. Hal tersebut dapat saja terjadi karena mungkin karena ketidaktahuan pengguna mengenai kabar terbaru dari anime yang pengguna sukai, dan perusahaan bisa merekomendasikan anime tersebut dan hal ini akan meningkatkan statistik penjualan perusahaan, menambah keuntungan perusahaan.
+Topik yang diambil mengenai sistem rekomendasi untuk merekomendasikan anime-anime yang sesuai dengan animenya (Content based Filltering). Sistem rekomendasi digunakan untuk dapat meningkatkan penjualan perusahaan, dikarenakan pengguna akan membeli atau akan melihat juga anime yang memiliki kesamaan seperti anime yang pengguna sukai. Hal tersebut dapat saja terjadi karena mungkin karena ketidaktahuan pengguna mengenai kabar terbaru dari anime yang pengguna sukai, dan perusahaan bisa merekomendasikan anime tersebut dan hal ini akan meningkatkan statistik penjualan perusahaan, menambah keuntungan perusahaan.
 
 Tujuan dibuatnya sistem rekomendasi ini adalah agar pengguna dapat diberikan rekomendasi yang sesuai dengan apa yang menjadi kebutuhan pengguna danatau yang pengguna sukai.
 
-Anime merupakan sebuah film yang diproduksi dari Jepang. Film-film anime memiliki berbagai macam genre, dan hal tersebutlah yang menjadi acuan pengguna dalam melihat sebuah film atau anime.
+Anime merupakan sebuah film yang diproduksi dari Jepang. Film-film anime memiliki berbagai macam genre, dan hal tersebutlah yang menjadi acuan pengguna dalam melihat sebuah film atau anime. Anime begitu populer seiring dengan waktu, dan banyak jenis-jenis anime yang baru pada setiap tahunnya.
 
 ## Business Understanding
 
@@ -20,8 +20,8 @@ Berdasarkan latar belakang yang telah disebukan dapat diambil permasalahan:
 ### Goals
 
 Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
-- Model Machine Learning yang mampu menghasilkan rekomendasi yang akurat
-- Membuat pengguna membeli film yang disukainya, agar perusahaan juga dapat meningkatkan penjualan dari adanya sistem rekomendasi.
+- Model Machine Learning yang mampu menyelesaikan permasalahan rekomendasi anime
+- Menyarankan anime-anime kepada pengguna sesuai dengan preferensi pengguna
 
 ## Data Understanding
 Dataset yang digunakan dalam pengerjaan proyek submission ini bersumber dari Kaggle. Dataset dapat diunduh melalui link  [berikut ini ](https://www.kaggle.com/datasets/CooperUnion/anime-recommendations-database).
@@ -32,14 +32,24 @@ Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
 - anime_id : merupakan variabel id dari film anime 
 - name : merupakan variabel nama atau judul dari anime tersebut
 - genre : merupakan variabel list genre dari anime yang dipisahkan dengan tanda koma
-- type : merupakan variabel tipe anime (Movie, TV, OVA)
+- type : merupakan variabel tipe anime (Movie, TV)
+  tipe anime apabila movie, seperti film kebanyakan, hanya memiliki durasi kurang lebih 2 jam
+  tipe TV, film yang memiliki beberapa episode dalam tayangan animenya
 - episodes : merupakan variabel berapa banyak episode anime (1 jika itu movie)
-- rating : merupakan variabel rata-rata rating anime
-- members : merupakan variabel banyaknya member komunitas
+- rating : merupakan variabel rata-rata rating anime, dalam bentuk skala angka 1-10
+- members : merupakan variabel banyaknya member komunitas atau grup anime tersebut
 
-![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/808f1910-0738-48c1-bd58-b97ca8d9baf7)
+| index | Column   | Non-Null | Count | DType   |
+|-------|----------|----------|-------|---------|
+| 0     | anime_id | Non-Null | 12294 | int64   |
+| 1     | name     | Non-Null | 12294 | object  |
+| 2     | genre    | Non-Null | 12232 | object  |
+| 3     | type     | Non-Null | 12269 | object  |
+| 4     | episodes | Non-Null | 12294 | object  |
+| 5     | rating   | Non-Null | 12064 | float64 |
+| 6     | members  | Non-Null | 12294 | int64   |
 
-*Gambar sebuah informasi dari dataset anime.csv*
+*Tabel 1. Sebuah informasi dari dataset anime.csv*
 
 ![image](https://github.com/EvangelionsFelix8/Submission-1---Predictive-Analytics/assets/89820016/c05d4ddd-5912-4007-8ffd-87e708f1ef96)
 
@@ -58,8 +68,10 @@ Dalam tahap ini dilakukan sebagai berikut:
 
 2. Menghilangkan kolom yang tidak digunakan
 - menghapus kolom yang tidak digunakan yaitu kolom, type, episodes, rating, members
+- kolom yang akan dipakai untuk membuat model adalah kolom anime_id, anime_name, dan genre, karena fitur-fitur inilah yang paling berpengaruh dalam pembuatan model dengan teknik Content-Based Filtering
 - Karena dalam teknik Content Based Filltering kita hanya membutuhkan genre untuk menilai rekomendasi dari sebuah film
-- Kolom-kolom tersebut dihapus dikarenakan tidak dibutuhkan dalam membangun model sistem rekomendasi dengan teknik Content-Based Filtering.
+- Kolom-kolom tersebut dihapus dikarenakan tidak dibutuhkan dalam membangun model sistem rekomendasi dengan teknik Content-Based Filtering, karena tidak membantu pada pembuatan model
+
 
 3. Mengonversi Data Series menjadi Bentuk list
 - Proses mengubah data series menjadi bentuk list
@@ -82,8 +94,9 @@ fungsi anime_recommendation bertujuan untuk menampilkan judul-judul anime yang m
 - k : banyaknya jumlah rekomnedasi anime yang diinginkan
 
 4. Content-Based Filtering
-- Algoritma ini dapat memberikan rekomendasi terhadap pengguna berdasarkan genre yang disukai pengguna.
+- Algoritma ini dapat memberikan rekomendasi terhadap pengguna berdasarkan genre yang disukai pengguna. Cara kerja dari algortima ini adalah sistem akan merekomendasikan konten-konten yang sama dari suatu item, kemudian dari kesamaan tersebut, maka sistem akan membuat tingkat kesamaan antara item 1 dengan item yang lainnya.
 - Model ini akan menyeleksi genre-genre yang pengguna lihat serta akan merekomendasikan film/anime lainnya yang memiliki genre yang sama.
+- 
 
 ## Hasil dari pemodelan
 Model yang telah dilatih telah selesai dibuat, untuk menampilkan hasil rekomendasinya diinputkan data sebagai berikut:
@@ -113,3 +126,7 @@ Model yang digunakan atau teknik yang digunakan dalam proyek terakhir ini adalah
 $$ Precision \\ at \\ K = {{Jumlah \\ item \\ relevan \\ di \\ antara \\ K \\ item \\ pertama \over K}} $$
 
 Berdasarkan rumus tersebut dapat dihitung bahwa, dari 10 anime yang direkomendasikan terdapat 9 anime yang memiliki genre yang sama dengan anime yang pengguna lihat. Maka, nilai Precision at K dari sistem rekomendasi ini adalah 9/10, yang berarti tingkat akurasi dari model adalah 90%. Apabila kinerja dari model 100% atau model tersebut mampu memberikan rekomendasi 10/10, maka sistem tersebut dengan sangat baik mampu merekomendasikan anime-anime yang dilihat atau disukai pengguna.
+
+Dari ke-10 anime yang direkomendasikan, memang terdapat 1-2 genre yang memiliki genre yang berbeda, hal tersebut bukanlah masalah, karena anime tersebut tidak memiliki satu genre saja, melainkan banyak genre.
+
+Dengan hasil dari model sistem rekomendasi yang telah dibuat, dapat disimpulkan bahwa sistem rekomendasi ini dapat diandalkan untuk sebagai sistem rekomendasi anime pengguna.
