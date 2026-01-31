@@ -171,3 +171,7 @@ Berdasarkan rumus tersebut dapat dihitung bahwa, dari 10 anime yang direkomendas
 Dari ke-10 anime yang direkomendasikan, memang terdapat 1-2 genre yang memiliki genre yang berbeda, hal tersebut bukanlah masalah, karena anime tersebut tidak memiliki satu genre saja, melainkan banyak genre.
 
 Dengan hasil dari model sistem rekomendasi yang telah dibuat, dapat disimpulkan bahwa sistem rekomendasi ini dapat diandalkan untuk sebagai sistem rekomendasi anime pengguna.
+
+
+## Link Projek Google Colab 
+[Google Colab](https://colab.research.google.com/drive/1x9W0NUoq0iei1qnq81cj3kuPUKUAZjji?usp=sharing)
